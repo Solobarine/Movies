@@ -1,4 +1,4 @@
 // Import Necesary Elements
-const movies = document.querySelector('.movies');
+// const movies = document.querySelector('.movies');
 
-export default movies;
+// export default movies;
