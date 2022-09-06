@@ -12,10 +12,10 @@ const displayMovies = (array) => {
                             <p class="l-num"></p>
                             </div>
                           <button class="commentBtn-1">Comment</button>
-                         </div>`
+                         </div>`;
   }
-}
+};
 
 export { displayMovies };
 
-// Function to 
+// Function to
