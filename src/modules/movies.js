@@ -1,5 +1,5 @@
-// Import Elements
-import movies from 'elements.js';
+// Import Functions
+import { displayMovies } from "./functions.js";
 
 // Collect Data from Movies API
 const getMovies = async() => {
@@ -11,6 +11,7 @@ const getMovies = async() => {
     images.push(data[i].resolutions.original.url);
   }
   console.log(images);
+  displayMovies(images);
 }
 
-getMovies()
+export default getMovies;
