@@ -1,1 +1,88 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+/*
+*, *:before, *:after {
+  box-sizing: border-box;
+}*/
 
+body {
+  max-width: 1920px;
+}
+
+.header {
+  width: 96%;
+  margin-left: 2%;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.company {
+  width: 20%;
+  margin-top: -7px;
+}
+
+.c-name {
+  font-size: 43px;
+}
+
+.nav {
+  width: 40%;
+  display: flex;
+  padding-top: 30px;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.sign-buttons {
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.sign-buttons > button {
+  width: 40%;
+  cursor: pointer;
+  border-radius: 8px;
+  background: #777;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+}
+
+.movies {
+  max-width: 800px;
+  margin-left: 28%;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+ justify-content: space-between;
+}
+
+.movie-div {
+ width: 30%;
+}
+
+.copy {
+  text-align: center;
+  font-size: 18px;
+}
+
+.popup {
+  width: 66%;
+  top: 60px;
+  position: fixed;
+  z-index: 100;
+  background-color: red;
+}
+
+.overlay {
+  width: 100%;
+  height: 500px;
+  top: 0;
+  left: 0;
+}

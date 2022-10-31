@@ -1,7 +1,7 @@
 // Import Elements
 /* eslint no-unused-vars: "error" */
 // import movies from './modules/elements.js';
-// import './style.css';
+import './style.css';
 // import Images from './Images/logo.png';
 
 // Import Functions

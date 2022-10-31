@@ -6,6 +6,11 @@ import {getReservation, postReservation} from './reservations.js';
 
 // Import Functions
 
+const closeModal = (modal, overlay) => {
+  modal.innerHTML = '';
+  modal.classList.remove('popup');
+  overlay.classList.remove('overlay');
+}
 
 // Function top display images on Home Page
 export const displayMovies = (input, input2, input3) => {
@@ -28,10 +33,13 @@ export const displayMovies = (input, input2, input3) => {
 
 // Event Listener Function for Comment Button
 movies.addEventListener('click', (e) => {
+  const allButtons = Array.from(document.querySelectorAll('.commentBtn-1'));
+  console.log(allButtons);
   if (e.target.classList.contains('commentBtn-1')) {
     const target = e.target;
-    console.log(target);
+    const index = allButtons.indexOf(target);
     const item = e.target.parentElement;
+    commentPopup.innerHTML = '';
     commentPopup.innerHTML = `<div class="c-popup">
                                 <p class="x">x</p>
                                 <img src="" alt="" class="poster">
@@ -44,9 +52,13 @@ movies.addEventListener('click', (e) => {
                                 <button class="submit">Comment</button>
                                 </div>`
   }
-  const pic = document.querySelector('.pic')
-  const try1 = document.querySelector('.comm')
+  const pic = document.querySelector('.pic');
+  const overlay = document.querySelector('#lay');
+  const close = document.querySelector('.x');
   console.log(pic);
+  commentPopup.classList.add('popup');
+  overlay.classList.add('overlay');
+  close.addEventListener('click', () => closeModal(commentPopup, overlay));
 })
 
 /// Event Listener for Comment Section Button
@@ -61,18 +73,13 @@ commentPopup.addEventListener('click', (e) => {
        list.push(buttons[i].className);
     }
     const index = list.indexOf('commentBtn-1 test');
-    console.log(index);
     // Get data from input fields
     const userName = document.querySelector('.un')
-    console.log(userName.value);
     const userComment = document.querySelector('.uc')
-    console.log(userComment.value);
     // Send Comments to API
     postComments(userName.value, userComment.value, index)
     // Recieve Comments from API
-    getComments(index);
-     //listComment(index);
-    //e.target.classList.remove('test');
+    e.target.classList.remove('test');
    }
 })
 
@@ -87,7 +94,6 @@ movies.addEventListener('click', (e) => {
        likeArray.push(likeBtns[i].className);
     }
     const index = likeArray.indexOf('fa-heart love');
-    console.log(index);
     //  Post a Like
     postLike(index);
     // Get number of Likes
@@ -127,6 +133,7 @@ const listComment = (m) => {
     const ind = lis.indexOf('commentBtn-1 maybe');
     // Get Comments
     getComments(ind);
+    m.target.classList.remove('maybe');
   }
 }
 
@@ -144,12 +151,13 @@ function namy(array, b, c) {
 
 // See Reservations Page
 movies.addEventListener('click', (e) => {
-  if (e.target.classList.contains('reservaBtn-1')) {
+  if (e.target.classList.contains('reserveBtn-1')) {
     const item = e.target;
     console.log('click');
     console.log(item);
+    reservePopup.classList.add('popup');
     reservePopup.innerHTML = `<div class="reserve-page">
-                                <p class="close">&copy;</p>
+                                <p class="close">&#9447</p>
                                 <img src="" alt="" class="movie-poster">
                                 <div class="desc"></div>
                                 <h2 class="r-header">Reservations</h2>
@@ -161,6 +169,9 @@ movies.addEventListener('click', (e) => {
                                 <button class="resBtn">Reserve</button>
                                 </div>`
   }
+  const close = document.querySelector('.close');
+  const overlay = document.querySelector('#lay');
+  close.addEventListener('click', () => closeModal(reservePopup, overlay));
 })
 
 // Send and Display Reservations on click

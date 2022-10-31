@@ -18,6 +18,7 @@ export const postComments = async (a, b,c) => {
 // Retrieve Comments from API
 export const getComments = async (c) => {
   const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/sZdlIyu4dVy3uNIhS8YY/comments?item_id=item' + c;
+  console.log(url);
    const recieve = await fetch(url);
    const data = await recieve.json();
    console.log(data);
